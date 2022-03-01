@@ -6,7 +6,6 @@ import com.softtech.softtech3rdassignment.app.dto.requestdto.AccountUpdateReques
 import com.softtech.softtech3rdassignment.app.dto.responsedto.AccountGetResponseDto;
 import com.softtech.softtech3rdassignment.app.dto.responsedto.AccountSaveResponseDto;
 import com.softtech.softtech3rdassignment.app.dto.responsedto.AccountUpdateResponseDto;
-import com.softtech.softtech3rdassignment.app.entity.Account;
 import com.softtech.softtech3rdassignment.app.service.entityservice.AccountEntityService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -37,8 +36,8 @@ public class AccountController {
         return ResponseEntity.ok(RestResponse.of(accountGetResponseDtoList));
     }
 
-    @GetMapping("/")
-    public ResponseEntity getAccountByUserName(@RequestParam(value = "name") String name){
+    @GetMapping("/by")
+    public ResponseEntity getAccountByUserName(@RequestParam String name){
 
         AccountGetResponseDto accountGetResponseDto = accountEntityService.getAccountByUserName(name);
 
@@ -53,16 +52,16 @@ public class AccountController {
         return ResponseEntity.ok(RestResponse.of(accountGetResponseDto));
     }
 
-    @DeleteMapping("/{name}")
-    public ResponseEntity deleteAccount(@PathVariable String name, @RequestParam String phone){
+    @DeleteMapping("/by")
+    public ResponseEntity deleteAccount(@RequestParam String name, @RequestParam String phone){
 
         accountEntityService.deleteAccount(name, phone);
 
         return ResponseEntity.ok(RestResponse.empty());
     }
 
-    @PatchMapping("/{name}")
-    public ResponseEntity updateAccount(@PathVariable String name, @RequestBody AccountUpdateRequestDto accountUpdateRequestDto){
+    @PatchMapping("/by")
+    public ResponseEntity updateAccount(@RequestParam String name, @RequestBody AccountUpdateRequestDto accountUpdateRequestDto){
 
         AccountUpdateResponseDto accountUpdateResponseDto = accountEntityService.updateAccount(name, accountUpdateRequestDto);
 

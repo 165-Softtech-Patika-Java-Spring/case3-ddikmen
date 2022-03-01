@@ -67,10 +67,12 @@ public class AccountEntityService {
 
         Account account = accountDao.findByUserName(name);
 
-        if(account.getPhoneNumber() != phone){
-            throw new RuntimeException("User and phone mismatch!");
-        }else{
+        String accountPhone = account.getPhoneNumber();
+
+        if(accountPhone.equals(phone)){
             accountDao.delete(account);
+        }else{
+            throw new RuntimeException("User and phone mismatch!");
         }
     }
 
@@ -78,7 +80,11 @@ public class AccountEntityService {
 
         Account account = accountDao.findByUserName(name);
 
+        Long id = account.getId();
+
         account = convertToAccount(accountUpdateRequestDto);
+
+        account.setId(id);
 
         accountDao.save(account);
 

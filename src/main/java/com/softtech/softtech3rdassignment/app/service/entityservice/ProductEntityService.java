@@ -2,7 +2,6 @@ package com.softtech.softtech3rdassignment.app.service.entityservice;
 
 import com.softtech.softtech3rdassignment.app.converter.ProductMapper;
 import com.softtech.softtech3rdassignment.app.dao.ProductDao;
-import com.softtech.softtech3rdassignment.app.dto.RestResponse;
 import com.softtech.softtech3rdassignment.app.dto.requestdto.ProductPriceUpdateRequestDto;
 import com.softtech.softtech3rdassignment.app.dto.requestdto.ProductSaveRequestDto;
 import com.softtech.softtech3rdassignment.app.dto.responsedto.ProductGetResponseDto;
@@ -12,7 +11,6 @@ import com.softtech.softtech3rdassignment.app.entity.Product;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.math.BigDecimal;
 import java.util.List;
 import java.util.Optional;
 

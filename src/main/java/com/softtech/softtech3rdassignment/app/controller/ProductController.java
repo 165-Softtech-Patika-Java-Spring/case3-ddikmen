@@ -6,13 +6,11 @@ import com.softtech.softtech3rdassignment.app.dto.requestdto.ProductSaveRequestD
 import com.softtech.softtech3rdassignment.app.dto.responsedto.ProductGetResponseDto;
 import com.softtech.softtech3rdassignment.app.dto.responsedto.ProductPriceUpdateResponseDto;
 import com.softtech.softtech3rdassignment.app.dto.responsedto.ProductSaveResponseDto;
-import com.softtech.softtech3rdassignment.app.entity.Product;
 import com.softtech.softtech3rdassignment.app.service.entityservice.ProductEntityService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.math.BigDecimal;
 import java.util.List;
 
 @RestController
