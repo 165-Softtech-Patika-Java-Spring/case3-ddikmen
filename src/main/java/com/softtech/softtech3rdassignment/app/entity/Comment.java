@@ -20,4 +20,9 @@ public class Comment {
     @Column(name = "COMMENT_DESCRIPTION", nullable = false, length = 250)
     private String comment;
 
+    @Column(name = "ID_ACCOUNT")
+    private Long accountId;
+
+    @Column(name = "ID_PRODUCT")
+    private Long productId;
 }

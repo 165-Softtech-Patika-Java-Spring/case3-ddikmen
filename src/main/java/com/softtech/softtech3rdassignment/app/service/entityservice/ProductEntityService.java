@@ -7,6 +7,7 @@ import com.softtech.softtech3rdassignment.app.dto.requestdto.ProductSaveRequestD
 import com.softtech.softtech3rdassignment.app.dto.responsedto.ProductGetResponseDto;
 import com.softtech.softtech3rdassignment.app.dto.responsedto.ProductPriceUpdateResponseDto;
 import com.softtech.softtech3rdassignment.app.dto.responsedto.ProductSaveResponseDto;
+import com.softtech.softtech3rdassignment.app.entity.Account;
 import com.softtech.softtech3rdassignment.app.entity.Product;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -75,6 +76,17 @@ public class ProductEntityService {
         return productPriceUpdateResponseDto;
     }
 
+    public Product findById(Long id){
+
+        Optional<Product> optionalProduct = productDao.findById(id);
+
+        if(optionalProduct.isPresent()){
+            return optionalProduct.get();
+        }else{
+            return null;
+        }
+
+    }
 
     private Product getProduct(Optional<Product> productOptional) {
 

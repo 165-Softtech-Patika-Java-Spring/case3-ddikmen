@@ -62,6 +62,18 @@ public class AccountEntityService {
         return accountGetResponseDto;
     }
 
+    public Account findById(Long id){
+
+        Optional<Account> optionalAccount = accountDao.findById(id);
+
+        if(optionalAccount.isPresent()){
+            return optionalAccount.get();
+        }else{
+            return null;
+        }
+
+    }
+
 
     public void deleteAccount(String name, String phone){
 
